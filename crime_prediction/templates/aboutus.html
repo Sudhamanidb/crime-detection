@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <link rel='stylesheet' href="{% static 'aboutus.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Sigmar+One&family=Syne+Mono&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
+ 
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="content">
+                <h2>101</h2>
+                <h3>INSTANT HELP</h3>
+                <p id="description" class="short-description">safeguarding our communities by 
+                    recognizing threats early and acting
+                     to stop harm before it happens. 
+                     It’s about creating a world where everyone
+                      feels safe, valued, and protected.
+                      It's our job to protect you from 
+                      any trouble.
+                    CLICK THE BOTTON , 
+                    it means you are safe</p>
+                <p id="extra-description" class="extra-description" style="display: none;">This is additional content that will be revealed when you click 'Read More'. You can add more detailed information here about crime prevention or any other relevant topic.</p>
+                <a href="#" id="read-more-link" onclick="toggleContent()">Read More</a>
+            </div>
+        </div>
+    </div>
+    <script src='aboutus.js'></script>
+
+    <script>
+        function toggleContent() {
+            var extraContent = document.getElementById("extra-description");
+            var readMoreLink = document.getElementById("read-more-link");
+            
+            if (extraContent.style.display === "none") {
+                extraContent.style.display = "block";
+                readMoreLink.textContent = "Read Less";
+            } else {
+                extraContent.style.display = "none";
+                readMoreLink.textContent = "Read More";
+            }
+        }
+    </script>
+</body>
+
+</html>

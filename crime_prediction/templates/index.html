@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(http://localhost:8000/static/images/background.jpg);
+            background-color: #141313;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .con {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .log {
+            font-size: 30px;
+            font-weight: bold;
+            color: #bb2f2f;
+        }
+
+        .log1 {
+            font-size: 16px;
+            color: #cd2424;
+        }
+
+        .container {
+            background-color: #ffffff89;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .container2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .container1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cancelbtn {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cancelbtn:hover {
+            background-color: #e53935;
+        }
+
+        .lab {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .lab:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        // JavaScript to validate the user login
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form from submitting immediately
+            
+            // Get the values from the form inputs
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Hardcoded valid credentials (users and their passwords)
+            var users = [
+                { username: "sudha", password: "1234567890" },  // First user
+                { username: "john", password: "password123" },  // Second user
+                { username: "alice", password: "alice1234" }    // Third user
+            ];
+
+            // Check if the input username and password match any of the hardcoded users
+            var validUser = false;
+            for (var i = 0; i < users.length; i++) {
+                if (username === users[i].username && password === users[i].password) {
+                    validUser = true;
+                    break;
+                }
+            }
+
+            if (validUser) {
+                // If valid, submit the form
+                alert("Login successful!");
+                window.location.href = "http://127.0.0.1:8000/admin/crime_prediction/emergencyalert/"; // Redirect to the admin page after successful login
+            } else {
+                // If invalid, show an "Invalid user" message
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <form method="POST" name="loginForm" onsubmit="validateLogin(event)">
+        {% csrf_token %}
+        
+        <div class="con">
+            <a class="log">Login</a>
+            <p class="log log1"></p>
+        </div>
+
+        <div class="container">
+            <div class="container2">
+                <label for="username"><b>User Name</b></label>
+                <input id="username" autocomplete="off" type="text" placeholder="Enter Username" name="Username" required>
+
+                <label for="password"><b>Password</b></label>
+                <input id="password" autocomplete="off" type="password" placeholder="Enter Password" name="Password" required>
+
+                <button type="submit">Login</button>
+                
+            </div>
+
+            <div class="container1">
+                <button type="button" class="cancelbtn">Cancel</button>
+             
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
