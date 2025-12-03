@@ -47,9 +47,6 @@ The system captures **real-time location, video evidence, and user details**, wh
 
 ---
 
-## ⭐ Support
-
-If you like this project, please give the repository a **star ⭐**!
 
 
 
